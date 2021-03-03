@@ -75,16 +75,13 @@
                                 <label for="name">Выберете корпус</label>
 
                                 <select class="form-control">
-                                    <option>Корпус А</option>
-                                    <option>Корпус Б</option>
-                                    <option>Корпус В</option>
-                                    <option>Корпус Г</option>
-                                    <option>Корпус М</option>
-                                    <option>Корпус Ф</option>
-                                    <option>Красная 135</option>
-                                    <option>Красная 91</option>
-                                    <option>Старокубанская</option>
-                                    <option>Общежитие №3</option>
+
+                                    <?php /** @var TYPE_NAME $corpList */
+                                    foreach ($corpList as $corp): ?>
+                                        <option></option>
+                                        <option value="<?= $corp['id'] ?>"><?= $corp['name'] ?></option>
+                                    <?php endforeach; ?>
+
                                 </select>
                             </div>
 

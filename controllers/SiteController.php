@@ -1,13 +1,15 @@
 <?php
 
 
-class Requests
+class SiteController
 {
+
     public function actionIndex()
     {
-        $db = Db::getConnection();
-        var_dump($db);
-        die('test');
-        return $db;
+        $corpList = array();
+        $corpList = Corp::getCorpList();
+
+        require_once ROOT . '/view/index.php';
+        return $corpList;
     }
 }
