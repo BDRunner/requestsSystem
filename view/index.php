@@ -33,7 +33,7 @@
                 <form
                         id="contact-form"
                         method="post"
-                        action="contact.php"
+                        action="index.php"
                         role="form"
                 >
                     <div class="messages"></div>
@@ -46,7 +46,7 @@
                                     <input
                                             id="form_name"
                                             type="text"
-                                            name="name"
+                                            name="fio"
                                             class="form-control"
                                             placeholder="Например: Иванов Иван Иванович"
                                             required="required"
@@ -72,15 +72,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="name">Выберете корпус</label>
+                                <label for="corp_id">Выберете корпус</label>
 
-                                <select class="form-control">
+                                <select name="corp_id" class="form-control">
 
+                                        <option></option>
                                     <?php /** @var TYPE_NAME $corpList */
                                     foreach ($corpList as $corp): ?>
-                                        <option></option>
                                         <option value="<?= $corp['id'] ?>"><?= $corp['name'] ?></option>
+
                                     <?php endforeach; ?>
+
 
                                 </select>
                             </div>
@@ -100,9 +102,6 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                        </div>
-
-
 
 
 
@@ -124,13 +123,31 @@
                             </div>-->
 
 
+                        <div class="form-group">
+                            <label for="type_id">Тип проблемы</label>
+
+                            <select name="type_id" class="form-control">
+
+                                <option></option>
+                                <?php /** @var TYPE_NAME $typeList */
+                                foreach ($typeList as $type): ?>
+                                    <option value="<?= $type['id'] ?>"><?= $type['name'] ?></option>
+
+                                <?php endforeach; ?>
+
+
+                            </select>
+                        </div>
+                        </div>
+
+
                         <div class="row">
                             <div class="col-md-13">
                                 <div class="form-group">
                                     <label for="form_message">Максимально подробно опишите вашу проблему</label>
                                     <textarea
                                             id="form_message"
-                                            name="message"
+                                            name="description"
                                             class="form-control"
                                             placeholder="Опишите проблему"
                                             rows="7"
@@ -140,10 +157,12 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
+                        </div>
 
                             <div class="col-md-14">
                                 <input
                                         type="submit"
+                                        name="submit"
                                         class="btn btn-success btn-send"
                                         value="Отправить"
                                 />

@@ -9,7 +9,52 @@ class SiteController
         $corpList = array();
         $corpList = Corp::getCorpList();
 
-        require_once ROOT . '/view/index.php';
-        return $corpList;
+        $typeList = array();
+        $typeList = Type::getType();
+
+        if (isset($_POST['submit'])) {
+
+            $model = new Request();
+            $model->fio = $_POST['fio'];
+            $model->phone = $_POST['phone'];
+            $model->corp_id = $_POST['corp_id'];
+            $model->cab_number = $_POST['cab_number'];
+            $model->type_id = $_POST['type_id'];
+            $model->description = $_POST['description'];
+            $result = Request::writeRequest($model);
+        }
+
+
+        require_once(ROOT . '/view/index.php');
+        return true;
+
     }
+
+
 }
+/*public function actionRegister()
+{
+    $fio = false;
+    $phone = false;
+    $corp_id = false;
+    $cabinet = false;
+    $type_id = false;
+    $description = false;
+    $user_id = false;
+    $status = false;
+
+    if (isset($_POST['submit'])) {
+
+        $fio = $_POST['name'];
+        $phone = $_POST['phone'];
+        $corp_id = $_POST['corp_id'];
+        $cabinet = $_POST['cab_number'];
+        $type_id = $_POST['type_id'];
+        $description = $_POST['message'];
+        $user_id = 1;
+        $status = 1;
+
+        $result = Request::writeRequest();
+        require_once(ROOT . '/view/index.php');
+        return true;
+    }*/
