@@ -2,3 +2,9 @@
 body{
     background-image: url(/template/images/kubstu.png);
 }*/
+
+.selectGrey{
+    color:black;
+    font-size: 12pt;
+    background: #bbbbbb;
+}

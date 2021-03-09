@@ -13,24 +13,27 @@ class SiteController
         $typeList = Type::getType();
 
         if (isset($_POST['submit'])) {
-
             $model = new Request();
             $model->fio = $_POST['fio'];
             $model->phone = $_POST['phone'];
             $model->corp_id = $_POST['corp_id'];
-            $model->cab_number = $_POST['cab_number'];
+            $model->cabinet = $_POST['cabinet'];
             $model->type_id = $_POST['type_id'];
             $model->description = $_POST['description'];
             $result = Request::writeRequest($model);
+
+            header("Location: /new");
+
         }
-
-
         require_once(ROOT . '/view/index.php');
         return true;
-
     }
 
-
+    public function actionNew()
+    {
+        require_once(ROOT . '/view/success1.html');
+        return true;
+    }
 }
 /*public function actionRegister()
 {
