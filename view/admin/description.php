@@ -12,38 +12,40 @@
     <title>Admin</title>
 </head>
 <body>
-<table id="example" class="table table-striped table-bordered" style="width:100%" height="50px">
-    <thead>
-    <tr>
-        <th width="150" align="center">Номер заявки</th>
-        <th width="300" align="center">ФИО</th>
-        <th width="220" align="center">Номер телефона</th>
-        <th width="30" align="center">Корпус</th>
-<!--        <th width="70">Кабинет</th>-->
-        <th width="300">Тип проблемы</th>
-<!--        <th>Описание проблемы</th>-->
-        <th width="50">Время</th>
-        <th width="80">Действия</th>
-    </tr>
-    </thead>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
     <tbody>
-    <?php foreach ($getUser as $userList): ?>
-    <tr>
-        <td width="150" align="center"><?= $userList['id']; ?></td>
-        <td width="300"><?= $userList['fio']; ?></td>
-        <td width="200" align="center"><?= $userList['phone']; ?></td>
-        <td width="30" align="center"><?= $userList['corp_name']; ?></td>
-<!--        <td width="70" align="center">--><?//= $userList['cabinet']; ?><!--</td>-->
-        <td width="300"><?= $userList['name']; ?></td>
-<!--        <td>--><?//= $userList['description']; ?><!--</td>-->
-        <td width="50"><?= $userList['date']; ?></td>
-        <td width="80"><a href="/description/<?php echo $userList['id']; ?>" class="btn btn-warning">  Просмотр</a></td>
+        <tr>
+        <th>Номер заявки</th>
+        <td width="70%"><?= $description['request_id'];?></td>
+        </tr>
+        <tr>
+            <th>ФИО</th>
+            <td width="70%"><?= $description['fio'];?></td>
+        </tr>
+        <tr>
+            <th>Номер телефона</th>
+            <td width="70%"><?= $description['phone'];?></td>
+        </tr>
+        <tr>
+            <th>Номер кабинета</th>
+            <td width="70%"><?= $description['corp_name'] .' '. $description['cabinet'];?> </td>
+        </tr>
+        <tr>
+            <th>Время получения заявки</th>
+            <td width="70%"><?= $description['date'];?></td>
+        </tr>
+        <tr>
+            <th>Описание проблемы</th>
+            <td width="70%"><?= $description['description'];?></td>
+        </tr>
 
-    </tr>
-    <?php endforeach; ?>
+
     </tbody>
 
 </table>
+<td width="80"><a href="/admin" class="btn btn-warning">  Просмотр</a></td>
+<form method="post"><input name="hid" type="hidden" value="<?=$description['id']?>" <td width="80"><input type="submit" name="submit" value="Просмотр" class="btn btn-danger"></td></form>
+
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

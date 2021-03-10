@@ -12,6 +12,7 @@ class SiteController
         $typeList = array();
         $typeList = Type::getType();
 
+
         if (isset($_POST['submit'])) {
             $model = new Request();
             $model->fio = $_POST['fio'];
@@ -34,6 +35,7 @@ class SiteController
         require_once(ROOT . '/view/success1.html');
         return true;
     }
+
 }
 /*public function actionRegister()
 {
