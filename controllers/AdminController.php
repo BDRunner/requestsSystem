@@ -49,7 +49,7 @@ class AdminController extends AdminBase
     {
         // Переменные для формы
 
-        $email = false;
+        $name = false;
         $password = false;
 
         // Обработка формы
@@ -57,21 +57,21 @@ class AdminController extends AdminBase
             // Если форма отправлена
             // Получаем данные из формы
 
-            $email = $_POST['email'];
+            $name = $_POST['name'];
             $password = $_POST['password'];
 
             // Флаг ошибок
             $errors = false;
 
             // Валидация полей
-            if (!User::checkEmail($email)) {
-                $errors[] = 'Неправильный email';
+            if (!User::checkName($name)) {
+                $errors[] = 'Неправильный логин';
             }
             if (!User::checkPassword($password)) {
                 $errors[] = 'Пароль не должен быть короче 6-ти символов';
             }
 
-            $userId = User::checkUserData($email, $password);
+            $userId = User::checkUserData($name, $password);
             if ($userId == false) {
                 $errors[] = 'Неправильные данные для входа на сайт';
             } else {

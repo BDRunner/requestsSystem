@@ -44,11 +44,11 @@
                             <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
                                 <div class="form-group">
                                     <label for="uname1">Логин</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" type="email" name="email" id="uname1" required="" value="<?php echo $email; ?>">
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="name" id="uname1" required">
                                 </div>
                                 <div class="form-group">
                                     <label>Пароль</label>
-                                    <input type="password" name="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" value="<?php echo $password; ?>">
+                                    <input type="password" name="password" class="form-control form-control-lg rounded-0" id="pwd1" required">
                                 </div>
                                 <button type="submit" name="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
                             </form>

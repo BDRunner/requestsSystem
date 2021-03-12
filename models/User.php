@@ -17,18 +17,18 @@ class User
         return $userList;
     }
 
-    public static function checkUserData($email, $password)
+    public static function checkUserData($name, $password)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'SELECT * FROM user WHERE email = :email AND password = :password';
+        $sql = 'SELECT * FROM user WHERE login = :name AND password = :password';
 
         // Получение результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
-        $result->bindParam(':email', $email, PDO::PARAM_INT);
-        $result->bindParam(':password', $password, PDO::PARAM_INT);
+        $result->bindParam(':name', $name, PDO::PARAM_STR);
+        $result->bindParam(':password', $password, PDO::PARAM_STR);
         $result->execute();
 
         // Обращаемся к записи
@@ -51,9 +51,9 @@ class User
     }
 
     //проверяет email
-    public static function checkEmail($email)
+    public static function checkName($name)
     {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (strlen($name) >= 6) {
             return true;
         }
         return false;
@@ -81,6 +81,7 @@ class User
 
         header("Location: /admin");
     }
+
     public static function getUserById($id)
     {
         // Соединение с БД
