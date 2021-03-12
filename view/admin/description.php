@@ -38,13 +38,15 @@
             <th>Описание проблемы</th>
             <td width="70%"><?= $description['description'];?></td>
         </tr>
-
+        <tr>
+            <td width="80"><a href="/admin" class="btn btn-warning">  Вернуться</a></td>
+            <form method="post"><td width="80" align="right"><input type="submit" name="submit" value="Выполнено" class="btn btn-danger"></td></form>
+        </tr>
 
     </tbody>
 
 </table>
-<td width="80"><a href="/admin" class="btn btn-warning">  Просмотр</a></td>
-<form method="post"><input name="hid" type="hidden" value="<?=$description['id']?>" <td width="80"><input type="submit" name="submit" value="Просмотр" class="btn btn-danger"></td></form>
+
 
 
 

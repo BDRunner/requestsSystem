@@ -12,6 +12,7 @@
     <title>Admin</title>
 </head>
 <body>
+<a href="/logout" class="btn btn-warning" > Выход</a>
 <table id="example" class="table table-striped table-bordered" style="width:100%" height="50px">
     <thead>
     <tr>
