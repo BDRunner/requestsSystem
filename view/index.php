@@ -4,6 +4,7 @@
     <title>Система подачи заявок КубГТУ</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="/template/images/favicon.ico" type="image/x-icon">
     <link
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
             rel="stylesheet"
@@ -26,11 +27,17 @@
     </style>-->
 </head>
 <body>
+<style >
+    body{
+        background-image: url('/template/images/kubstu.png');
+        background-size: 100%;
+    }
+    </style>
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <form role="form" method="post">
-                <h1 class="text-center">Система подачи заявок КубГТУ</h1>
+                <h1 class="text-center" >Система подачи заявок КубГТУ</h1>
                 <form
                         id="contact-form"
                         method="post"
@@ -43,7 +50,7 @@
                         <div class="row">
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="form_name">ФИО</label>
+                                    <label for="form_name" style="color: white">ФИО</label>
                                     <input
                                             id="form_name"
                                             type="text"
@@ -59,7 +66,7 @@
 
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="form_phone">Номер телефона для связи</label>
+                                    <label for="form_phone" style="color: white">Номер телефона для связи</label>
                                     <input
                                             id="phone"
                                             type="tel"
@@ -76,7 +83,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="corp_id">Выберете корпус</label>
+                                <label for="corp_id" style="color: white">Выберете корпус</label>
 
                                 <select name="corp_id" class="form-control">
 
@@ -97,7 +104,7 @@
 
                             <div class="col-md">
                                 <div class="form-group">
-                                    <label for="cab_number">Номер кабинета</label>
+                                    <label for="cab_number" style="color: white">Номер кабинета</label>
                                     <input
                                             id="cab_number"
                                             type="text"
@@ -132,7 +139,7 @@
 
 
                             <div class="form-group">
-                                <label for="type_id">Тип проблемы</label>
+                                <label for="type_id" style="color: white">Тип проблемы</label>
 
                                 <select name="type_id" class="form-control">
 
@@ -152,7 +159,7 @@
                         <div class="row">
                             <div class="col-md-13">
                                 <div class="form-group">
-                                    <label for="form_message">Максимально подробно опишите вашу проблему</label>
+                                    <label for="form_message" style="color: white">Максимально подробно опишите вашу проблему</label>
                                     <textarea
                                             id="form_message"
                                             name="description"
@@ -167,11 +174,11 @@
                             </div>
                         </div>
 
-                        <div class="col-md-14">
+                        <div class="col-md 20">
                             <input
                                     type="submit"
                                     name="submit"
-                                    class="btn btn-success btn-send"
+                                    class="btn btn-primary btn btn-block"
                                     value="Отправить"
                             />
                         </div>

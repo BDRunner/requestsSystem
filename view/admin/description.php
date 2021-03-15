@@ -9,7 +9,8 @@
           crossorigin="anonymous">
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin</title>
+    <link rel="shortcut icon" href="/template/images/favicon.ico" type="image/x-icon">
+    <title>Описание заявки</title>
 </head>
 <body>
 <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -39,8 +40,9 @@
             <td width="70%"><?= $description['description'];?></td>
         </tr>
         <tr>
-            <td width="80"><a href="/admin" class="btn btn-warning">  Вернуться</a></td>
-            <form method="post"><td width="80" align="right"><input type="submit" name="submit" value="Выполнено" class="btn btn-danger"></td></form>
+            <form method="post"><td width="80" align="left"><input type="submit" name="submit" value="Выполнено" class="btn btn-danger"></td></form>
+            <td width="80" align="right"><a href="/admin" class="btn btn-warning">  Вернуться</a></td>
+
         </tr>
 
     </tbody>

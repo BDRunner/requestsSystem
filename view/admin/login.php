@@ -5,9 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/template/images/favicon.ico" type="image/x-icon">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <title></title>
 </head>
 <body>
@@ -17,6 +19,23 @@
         background-image: url('/template/images/kubstu.png');
         background-size: 100%;
 
+    }
+    li {
+        color: white; /* Цвет маркеров */
+    }
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    .wrapper {
+        min-height: 100%;
+        /* Равно высоте подвала, */
+        /* но с учётом margin-bottom у последнего дочернего элемента */
+        margin-bottom: -50px;
+    }
+    .footer,
+    .push {
+        height: 50px;
     }
 </style>
 
@@ -31,7 +50,7 @@
                     <?php if (isset($errors) && is_array($errors)): ?>
                         <ul>
                             <?php foreach ($errors as $error): ?>
-                                <li> - <?php echo $error; ?></li>
+                                <li> <?php echo $error; ?></li>
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
@@ -50,11 +69,9 @@
                                     <label>Пароль</label>
                                     <input type="password" name="password" class="form-control form-control-lg rounded-0" id="pwd1" required">
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                                <button type="submit" name="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Войти</button>
                             </form>
                         </div>
                     </div>
-
-                    <!-- /form card login end-->
 </body>
 </html>
