@@ -15,7 +15,7 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="/logout" class="btn btn-danger" onclick="return confirm('Вы уверены?') ? true : false;">Выход</a>
+        <a href="/admin" class="btn btn-info">Выйти из архива</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,9 +37,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href= "/archive">Архив</a>
-                </li>
+
             </ul>
             <form class="form-inline my-2 my-lg-0" method="post">
                 <input name="myInput" class="form-control mr-sm-2" type="search" placeholder="Кого искать?"
@@ -73,40 +71,21 @@
     </tr>
     </thead>
     <tbody>
-    <?php if (isset($_POST['searchSubmit'])): ?>
+        <?php foreach ($getArchive as $userList): ?>
+            <tr>
+                <td width="150" align="center"><?= $userList['id']; ?></td>
+                <td width="300"><?= $userList['fio']; ?></td>
+                <td width="200" align="center"><?= $userList['phone']; ?></td>
+                <td width="30" align="center"><?= $userList['corp_name']; ?></td>
+                <!--        <td width="70" align="center">--><? //= $userList['cabinet']; ?><!--</td>-->
+                <td width="300"><?= $userList['name']; ?></td>
+                <!--        <td>--><? //= $userList['description']; ?><!--</td>-->
+                <td width="100"><?= $userList['date']; ?></td>
+                <td width="20"><a href="/description/<?php echo $userList['id']; ?>" class="btn btn-warning"> Просмотр</a>
+                </td>
 
-    <?php foreach ($getSearch as $searchList): ?>
-    <tr>
-        <td width="150" align="center"><?= $searchList['id']; ?></td>
-        <td width="300"><?=  $searchList['fio']; ?></td>
-        <td width="200" align="center"><?=  $searchList['phone']; ?></td>
-        <td width="30" align="center"><?=  $searchList['corp_name']; ?></td>
-        <!--        <td width="70" align="center">--><? //= $userList['cabinet']; ?><!--</td>-->
-        <td width="300"><?=  $searchList['name']; ?></td>
-        <!--        <td>--><? //= $userList['description']; ?><!--</td>-->
-        <td width="100"><?=  $searchList['date']; ?></td>
-        <td width="20"><a href="/description/<?php echo $searchList['id']; ?>" class="btn btn-warning"> Просмотр</a>
-        </td>
-
-    </tr>
-    <?php endforeach;?>
-    <?php else: ?>
-    <?php foreach ($getUser as $userList): ?>
-    <tr>
-        <td width="150" align="center"><?= $userList['id']; ?></td>
-        <td width="300"><?= $userList['fio']; ?></td>
-        <td width="200" align="center"><?= $userList['phone']; ?></td>
-        <td width="30" align="center"><?= $userList['corp_name']; ?></td>
-        <!--        <td width="70" align="center">--><? //= $userList['cabinet']; ?><!--</td>-->
-        <td width="300"><?= $userList['name']; ?></td>
-        <!--        <td>--><? //= $userList['description']; ?><!--</td>-->
-        <td width="100"><?= $userList['date']; ?></td>
-        <td width="20"><a href="/description/<?php echo $userList['id']; ?>" class="btn btn-warning"> Просмотр</a>
-        </td>
-
-    </tr>
-    <?php endforeach; ?>
-    <?php endif; ?>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 
 </table>

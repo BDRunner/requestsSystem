@@ -18,13 +18,35 @@ class AdminController extends AdminBase
 
         if (isset($_POST['searchSubmit'])) {
             $getData = $_POST['myInput'];
-            $getSearch = array();
             $getSearch = Search::getSearch($getData);
             var_dump($getSearch);
 
         }
 
         require_once(ROOT . '/view/admin/index.php');
+        return true;
+    }
+
+    public function actionDescription($id)
+    {
+        self::checkAdmin();
+
+        $corpList = array();
+        $corpList = Corp::getCorpList();
+
+        $typeList = array();
+        $typeList = Type::getType();
+
+        $getUser = array();
+        $getUser = Admin::getInfo();
+
+        if (isset($_POST['submit'])) {
+            $get_id = Status::getUpdateStatus($id);
+            header("Location: /admin");
+        }
+
+        $description = Admin::getDescriptionById($id);
+        require_once(ROOT . '/view/admin/description.php');
         return true;
     }
 
@@ -75,6 +97,20 @@ class AdminController extends AdminBase
         unset($_SESSION['user']);
         header('Location: /login');
     }
+    public function actionArchive()
+    {
+        self::checkAdmin();
 
+        $corpList = Corp::getCorpList();
+
+        $typeList = Type::getType();
+
+        $getUser = Admin::getInfo();
+
+        $getArchive = Admin::getArchiveInfo();
+
+        require_once(ROOT . '/view/admin/archive.php');
+        return true;
+    }
 
 }
