@@ -17,11 +17,10 @@ class AdminController extends AdminBase
         $getUser = Admin::getInfo();
 
         if (isset($_POST['searchSubmit'])) {
-            $getData = $_POST['myInput'];
-            $getSearch = Search::getSearch($getData);
-            var_dump($getSearch);
-
+            $getSearch = array();
+            $getSearch = Search::getSearch($_POST['myInput']);
         }
+
 
         require_once(ROOT . '/view/admin/index.php');
         return true;
@@ -97,6 +96,7 @@ class AdminController extends AdminBase
         unset($_SESSION['user']);
         header('Location: /login');
     }
+
     public function actionArchive()
     {
         self::checkAdmin();
