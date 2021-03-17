@@ -85,7 +85,7 @@
                             <div class="form-group">
                                 <label for="corp_id" style="color: white">Выберете корпус</label>
 
-                                <select name="corp_id" class="form-control">
+                                <select name="corp_id" class="form-control" required="required">
 
                                     <option></option>
                                     <?php /** @var TYPE_NAME $corpList */
@@ -141,7 +141,7 @@
                             <div class="form-group">
                                 <label for="type_id" style="color: white">Тип проблемы</label>
 
-                                <select name="type_id" class="form-control">
+                                <select name="type_id" class="form-control" required="required">
 
                                     <option></option>
                                     <?php /** @var TYPE_NAME $typeList */

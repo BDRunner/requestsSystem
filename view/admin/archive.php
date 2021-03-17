@@ -25,36 +25,29 @@
         <div class="collapse navbar-collapse lol" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Сортировка
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"-->
+<!--                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                        Сортировка-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                        <a class="dropdown-item" href="#">Action</a>-->
+<!--                        <a class="dropdown-item" href="#">Another action</a>-->
+<!--                        <div class="dropdown-divider"></div>-->
+<!--                        <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
+<!--                </li>-->
 
             </ul>
             <form class="form-inline my-2 my-lg-0" method="post">
                 <input name="myInput" class="form-control mr-sm-2" type="search" placeholder="Кого искать?"
-                       aria-label="Search">
+                       aria-label="Search" pattern="^[а-яА-Я\s]+$" required>
                 <button name="searchSubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
             </form>
         </div>
     </nav>
 </header>
 
-<table>
-    <tr>
-        <td>
-
-        </td>
-    </tr>
-</table>
 
 <table name="myTable" id="example" class="table table-striped table-bordered" style="width:100%" height="50px">
     <thead>
@@ -71,7 +64,25 @@
     </tr>
     </thead>
     <tbody>
-        <?php foreach ($getArchive as $userList): ?>
+    <?php if (isset($_POST['searchSubmit'])): ?>
+        <?php foreach ($getSearch as $searchList): ?>
+            <tr>
+                <td width="150" align="center"><?= $searchList['id']; ?></td>
+                <td width="300"><?= $searchList['fio']; ?></td>
+                <td width="200" align="center"><?= $searchList['phone']; ?></td>
+                <td width="30" align="center"><?= $searchList['corp_name']; ?></td>
+                <!--                <td width="70" align="center">--><? //= $searchList['cabinet']; ?><!--</td>-->
+                <td width="300"><?= $searchList['name']; ?></td>
+                <!--                <td>--><? //= $searchList['description']; ?><!--</td>-->
+                <td width="100"><?= $searchList['date']; ?></td>
+                <td width="20"><a href="/description/<?php echo $searchList['id']; ?>" class="btn btn-warning">
+                        Просмотр</a>
+                </td>
+
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <?php foreach ($getUser as $userList): ?>
             <tr>
                 <td width="150" align="center"><?= $userList['id']; ?></td>
                 <td width="300"><?= $userList['fio']; ?></td>
@@ -81,11 +92,13 @@
                 <td width="300"><?= $userList['name']; ?></td>
                 <!--        <td>--><? //= $userList['description']; ?><!--</td>-->
                 <td width="100"><?= $userList['date']; ?></td>
-                <td width="20"><a href="/description/<?php echo $userList['id']; ?>" class="btn btn-warning"> Просмотр</a>
+                <td width="20"><a href="/description/<?php echo $userList['id']; ?>" class="btn btn-warning">
+                        Просмотр</a>
                 </td>
 
             </tr>
         <?php endforeach; ?>
+    <?php endif; ?>
     </tbody>
 
 </table>

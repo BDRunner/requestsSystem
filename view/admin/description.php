@@ -40,8 +40,13 @@
             <td width="70%"><?= $description['description'];?></td>
         </tr>
         <tr>
-            <form method="post"><td width="80" align="left"><input type="submit" name="submit" value="Выполнено" class="btn btn-danger"></td></form>
+            <?php if($description['status'] == "1"): ?>
+
+            <form method="post"><td width="80" align="left"><input type="submit" name="submit" value="Выполнено" class="btn btn-danger" onclick="return confirm('Вы уверены?') ? true : false;"></td></form>
             <td width="80" align="right"><a href="/admin" class="btn btn-warning">  Вернуться</a></td>
+            <?php else: ?>
+                <td width="80" align="right" colspan="2"><a href="/admin" class="btn btn-warning">  Вернуться</a></td>
+            <?php endif; ?>
 
         </tr>
 

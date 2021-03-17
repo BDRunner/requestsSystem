@@ -43,8 +43,8 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" method="post">
                 <input name="myInput" class="form-control mr-sm-2" type="search" placeholder="Кого искать?"
-                       aria-label="Search">
-                <button name="searchSubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+                       aria-label="Search" pattern="^[а-яА-Я\s]+$" required>
+                <button name="searchSubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Поиск</button>
             </form>
         </div>
     </nav>
@@ -72,9 +72,9 @@
                 <td width="300"><?= $searchList['fio']; ?></td>
                 <td width="200" align="center"><?= $searchList['phone']; ?></td>
                 <td width="30" align="center"><?= $searchList['corp_name']; ?></td>
-                <td width="70" align="center"><?= $searchList['cabinet']; ?></td>
+                <!--                <td width="70" align="center">--><? //= $searchList['cabinet']; ?><!--</td>-->
                 <td width="300"><?= $searchList['name']; ?></td>
-                <td><?= $searchList['description']; ?></td>
+                <!--                <td>--><? //= $searchList['description']; ?><!--</td>-->
                 <td width="100"><?= $searchList['date']; ?></td>
                 <td width="20"><a href="/description/<?php echo $searchList['id']; ?>" class="btn btn-warning">
                         Просмотр</a>

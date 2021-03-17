@@ -79,7 +79,8 @@ class User
 
         }
 
-        header("Location: /admin");
+        header("Location: /login");
+
     }
 
     public static function getUserById($id)

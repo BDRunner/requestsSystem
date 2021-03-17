@@ -5,15 +5,13 @@ class AdminController extends AdminBase
 {
     public function actionIndex()
     {
+
         self::checkAdmin();
 
-        $corpList = array();
         $corpList = Corp::getCorpList();
 
-        $typeList = array();
         $typeList = Type::getType();
 
-        $getUser = array();
         $getUser = Admin::getInfo();
 
         if (isset($_POST['searchSubmit'])) {
@@ -101,14 +99,19 @@ class AdminController extends AdminBase
     {
         self::checkAdmin();
 
+
         $corpList = Corp::getCorpList();
 
         $typeList = Type::getType();
 
-        $getUser = Admin::getInfo();
 
-        $getArchive = Admin::getArchiveInfo();
+        $getUser = Admin::getArchiveInfo();
 
+        if (isset($_POST['searchSubmit'])) {
+
+            $getSearch = array();
+            $getSearch = Search::getSearch($_POST['myInput']);
+        }
         require_once(ROOT . '/view/admin/archive.php');
         return true;
     }
